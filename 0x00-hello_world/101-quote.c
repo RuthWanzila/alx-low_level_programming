@@ -6,7 +6,12 @@
  */
 int main(void)
 {
-const char *message = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
-write(STDERR_FILENO, message, 53);
+const char *str = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+ssize_t len = 59;
+ssize_t written = 0;
+while (written < len)
+{
+written += write(STDERR_FILENO, str + written, len - written);
+}
 return (1);
 }
