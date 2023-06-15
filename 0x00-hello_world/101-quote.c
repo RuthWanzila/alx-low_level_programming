@@ -1,17 +1,10 @@
 #include <unistd.h>
 /**
- * main - Entry point
+ * main - Entry point of the program
  *
- * Return: Always 1 (Success)
+ * Return: Always 1 (Error)
  */
 int main(void)
 {
-const char *str = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
-ssize_t len = 59;
-ssize_t written = 0;
-while (written < len)
-{
-written += write(STDERR_FILENO, str + written, len - written);
-}
+write(2, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", 59);
 return (1);
-}
