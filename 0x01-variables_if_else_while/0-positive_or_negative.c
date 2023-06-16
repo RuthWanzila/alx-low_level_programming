@@ -5,10 +5,11 @@
 int main(void)
 {
 int n;
+int lastDigit;
 srand(time(0));
 /*seed the random number generator*/
 n = rand();
-int lastDigit = n % 10;
+lastDigit = n % 10;
 /*get the last digit of n*/
 printf("Last digit of %d ", n);
 if (lastDigit > 5)
