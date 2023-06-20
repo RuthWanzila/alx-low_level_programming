@@ -1,14 +1,23 @@
 #include <stdio.h>
 
-int main() {
-int a = 1, b = 2, c, i;
-printf("%d, %d, ", a, b);
-for (i = 2; i < 98; i++) {
-c = a + b;
-printf("%d, ", c);
-a = b;
-b = c;
+/**
+ * main - prints the first 98 Fibonacci numbers
+ *
+ * Return: Always 0
+ */
+int main(void)
+{
+unsigned long int prev = 1, current = 2, next, i;
+
+printf("%lu, %lu", prev, current);
+for (i = 3; i <= 98; i++)
+{
+next = prev + current;
+printf(", %lu", next);
+prev = current;
+current = next;
 }
-printf("%d\n", a + b);
-return 0;
+printf("\n");
+
+return (0);
 }
