@@ -7,7 +7,7 @@ for (i = 2; i < 98; i++) {
 c = a + b;
 printf("%d, ", c);
 a = b;
-= c;
+b = c;
 }
 printf("%d\n", a + b);
 return 0;
