@@ -6,6 +6,11 @@
   *
   * Return: times table
   */
+int main(void)
+{
+times_table();
+return (0);
+}
 void print_times_table(int n)
 {
 int x, y, z;
