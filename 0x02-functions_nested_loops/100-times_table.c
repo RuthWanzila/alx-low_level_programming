@@ -1,50 +1,61 @@
 #include "main.h"
 
 /**
-  * print_times_table - prints the n times table, starting with 0
-  *@n: The number to be treated
-  *
-  * Return: times table
-  */
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+void _putchar(char c)
+{
+write(1, &c, 1);
+}
+
+/**
+ * print_times_table - prints the n times table starting with 0
+ * @n: The number to print the times table for
+ */
 void print_times_table(int n)
 {
-int x, y, z;
-if (n >= 0 && n <= 14)
-{
+if (n < 0 || n > 15)
+return;
+
+int x, y, product;
+
 for (x = 0; x <= n; x++)
 {
 for (y = 0; y <= n; y++)
 {
-z = x * y;
-if (z > 99)
+product = x * y;
+if (y == 0)
 {
-_putchar(',');
-_putchar(32);
-_putchar((z / 100) + '0');
-_putchar(((z / 10) % 10) + '0');
-_putchar((z % 10) + '0');
-}
-else if (z > 9)
-{
-_putchar(',');
-_putchar(32);
-_putchar(32);
-_putchar(((z / 10) % 10) + '0');
-_putchar((z % 10) + '0');
+_putchar('0' + product);
 }
 else
 {
-if (y != 0)
-{
 _putchar(',');
-_putchar(32);
-_putchar(32);
-_putchar(32);
+_putchar(' ');
+if (product < 10)
+{
+_putchar(' ');
+_putchar(' ');
+_putchar('0' + product);
 }
-_putchar(z + '0');
+else if (product < 100)
+{
+_putchar(' ');
+_putchar('0' + product / 10);
+_putchar('0' + product % 10);
+}
+else
+{
+_putchar('0' + product / 100);
+_putchar('0' + (product / 10) % 10);
+_putchar('0' + product % 10);
+}
 }
 }
 _putchar('\n');
-}
 }
 }
