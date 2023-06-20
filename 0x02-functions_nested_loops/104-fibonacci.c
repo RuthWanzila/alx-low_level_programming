@@ -7,13 +7,13 @@
  */
 int main(void)
 {
-unsigned long int prev = 1, current = 2, next, i;
-
-printf("%lu, %lu", prev, current);
-for (i = 3; i <= 98; i++)
+unsigned long int prev = 0, current = 1, next, i;
+for (i = 0; i < 98; i++)
 {
+printf("%lu", current);
+if (i != 97)
+printf(", ");
 next = prev + current;
-printf(", %lu", next);
 prev = current;
 current = next;
 }
