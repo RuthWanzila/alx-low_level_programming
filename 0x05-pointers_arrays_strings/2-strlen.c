@@ -11,4 +11,5 @@ while (*s != '\0')
 str++;
 s++;
 }
+return (str);
 }
