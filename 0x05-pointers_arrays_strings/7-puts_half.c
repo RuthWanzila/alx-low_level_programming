@@ -19,7 +19,7 @@ if (y % 2 == 1)
 i = y / 2;
 else
 x = (y - 1) / 2;
-for (x++; i < y; x++)
+for (x++; x < y; x++)
 _putchar(str[x]);
 _putchar('\n');
 }
