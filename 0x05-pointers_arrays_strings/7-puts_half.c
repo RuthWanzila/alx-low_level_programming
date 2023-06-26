@@ -16,7 +16,7 @@ break;
 y++;
 }
 if (y % 2 == 1)
-i = y / 2;
+x = y / 2;
 else
 x = (y - 1) / 2;
 for (x++; x < y; x++)
