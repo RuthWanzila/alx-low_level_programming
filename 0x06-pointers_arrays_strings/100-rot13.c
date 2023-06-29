@@ -7,9 +7,9 @@
  */
 char *rot13(char *s)
 {
- int i, j;
- char rot13_letters[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
- char rot13_numbers[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+int i, j;
+char rot13_letters[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+char rot13_numbers[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 for (i = 0; s[i] != '\0'; i++)
 {
