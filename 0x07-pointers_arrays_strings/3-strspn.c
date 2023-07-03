@@ -9,25 +9,17 @@
  */
 unsigned int _strspn(char *s, char *accept)
 {
-unsigned int k;
-int j;
-
-while (*s)
+int x, y;
+for (x = 0; s[x] != '\0'; x++)
 {
-for (j = 0; accept[j]; j++)
+for (y = 0; accept[y] != '\0'; y++)
 {
-if (accept[j] == *s)
+if (s[x] == accept[y])
 {
-k++
 break;
 }
-else if ((accept[j + 1]) == '\0')
-{
-return (k);
 }
-}
-s++;
-}
-return (k);
-
+if (accept[y] == '\0')
+break;
+return (x);
 }
