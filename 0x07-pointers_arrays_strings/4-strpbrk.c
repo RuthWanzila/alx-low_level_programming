@@ -17,11 +17,11 @@ if (*s == accept[i])
 {
 return (s);
 }
-else
-{
+
 s++;
 }
-}
+
+
 return (NULL);
 }
 
