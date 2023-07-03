@@ -20,6 +20,8 @@ break;
 }
 }
 if (accept[y] == '\0')
+{
 break;
+}
 return (x);
 }
