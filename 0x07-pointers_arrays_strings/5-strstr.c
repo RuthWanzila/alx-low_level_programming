@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * *_strstr -  locates a substring.
+ * _strstr -  locates a substring.
  * @haystack: string
  * @needle: substring
  * Return: pointer to the beginning of the located substring
@@ -20,13 +20,13 @@ for (a = 0; needle[a]; a++)
 if (haystack[b] != needle[b])
 break;
 }
-if (a == b)
+if (a != b)
 {
-return (haystack);
+haystack++;
 }
 else
 {
-haystack++;
+return (haystack);
 }
 }
 return (NULL);
