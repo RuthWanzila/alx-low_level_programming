@@ -9,4 +9,14 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
+while (*haystack)
+
+if (*haystack = *needle)
+{
+return (needle);
+}
+else
+{
+return (NULL);
+}
 }
