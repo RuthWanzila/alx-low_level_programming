@@ -12,7 +12,7 @@ if (n != 1)
 {
 if (num % n != 0)
 {
-return (is_prime_number(num, n - 1));
+return (is_prime_number(num));
 
 }
 else
