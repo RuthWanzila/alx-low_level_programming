@@ -32,12 +32,13 @@ if (guess * guess == n)
 {
 return (guess);
 }
-else if (guess * guess > n)
+else if (guess * guess < n)
 {
-return (_sqrt_helper(n, guess / 2));
+int next_guess = (guess + n / guess) / 2;
+return (next_guess == guess) ? guess : _sqrt_helper(n, next_guess);
 }
 else
 {
-return (_sqrt_helper(n, (guess + n) / 2));
+return (-1);
 }
 }
