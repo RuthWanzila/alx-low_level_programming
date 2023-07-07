@@ -9,28 +9,27 @@
  */
 int main(int argc, char *argv[])
 {
-if (argc == 1)
+int x, y;
+int n = 0;
+
+if (argc < 2)
 {
 printf("0\n");
 return (0);
 }
 
-int i, sum = 0;
-for (i = 1; i < argc; i++)
+for (x = 1; x < argc; x++)
 {
-int j = 0;
-while (argv[i][j])
+for (y = 0; argv[x][y] != '\0'; y++)
 {
-if (!isdigit(argv[i][j]))
+if (argv[x][y] < '0' || argv[x][y] > '9')
 {
 printf("Error\n");
 return (1);
 }
-j++;
 }
-sum += atoi(argv[i]);
+n += atoi(argv[x]);
 }
-
-printf("%d\n", sum);
+printf("%d\n", n);
 return (0);
 }
