@@ -1,6 +1,6 @@
-#include "main.h"
-#include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
+#include <stdio.h>
 /**
  * main -  adds positive numbers.
  * @argc: count
