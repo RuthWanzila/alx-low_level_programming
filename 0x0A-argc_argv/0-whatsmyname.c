@@ -4,7 +4,7 @@
 /**
  * main - program that prints its name
  * @argc: count
- * argv: vector
+ * @argv: vector
  * Return: 0
  */
 
