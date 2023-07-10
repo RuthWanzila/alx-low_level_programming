@@ -25,7 +25,7 @@ return (NULL);
 
 memcpy(res, s1, len1);
 memcpy(res + len1, s2, len2);
-res[len1 + len2] = NULL;
+res[len1 + len2] = '\0';
 
 return (res);
 }
