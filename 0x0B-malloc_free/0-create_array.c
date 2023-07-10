@@ -19,7 +19,7 @@ if (myArray == NULL)
 {
 return (NULL);
 }
-for (x = 0;; x < size; x++)
+for (x = 0; x < size; x++)
 {
 myArray[x] = c;
 }
