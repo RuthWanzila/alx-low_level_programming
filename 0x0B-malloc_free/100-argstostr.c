@@ -9,9 +9,10 @@
  */
 char *argstostr(int ac, char **av)
 {
+char *str;
 int i, j, len;
 len = 0;
-char *str;
+
 if (ac == 0 || av == NULL)
 {
 return (NULL);
