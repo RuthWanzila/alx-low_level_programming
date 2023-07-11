@@ -37,7 +37,7 @@ count++;
 *(p + b) = (char *)malloc((count + 1) * sizeof(char));
 if (*(p + b) == NULL)
 {
-for (k = 0; k <= j; k++)
+for (k = 0; k <= b; k++)
 {
 x = p[k];
 free(x);
