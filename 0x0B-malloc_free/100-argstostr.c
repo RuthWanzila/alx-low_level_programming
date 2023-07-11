@@ -22,9 +22,7 @@ for (i = 0; i < ac; i++)
 {
 len += strlen(av[i]) + 1;
 }
-
-
-str = (char *)malloc(len *sizeof(char));
+str = (char *)malloc((len + 1) * sizeof(char));
 if (str == NULL)
 {
 return (NULL);
