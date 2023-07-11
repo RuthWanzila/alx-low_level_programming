@@ -6,45 +6,53 @@
  */
 char **strtow(char *str)
 {
-{
-char *str_out;
-int i, j, len; 
-len = 0;
-if (ac == 0)
-{
-return (NULL);
-}
-for (i = 0; i < ac; i++)
-{
-if (av[i] == NULL)
+char **words_array;
+int j, start_pos, end_pos, ptr_index; 
+int num_words, i;
+num_words = 0;
+start_pos = 0;
+end_pos;
+ptr_index = 0;
+if (str == NULL || str[0] == '\0')
 {
 return (NULL);
 }
-for (j = 0; av[i][j] != '\0'; j++)
+for (i = 0; str[i] != '\0'; i++)
 {
-len++;
-}
-len++;
-}
-str_out = (char *)malloc((len + 1) * sizeof(char));
-if (str_out == NULL)
+if (((i > 0) && (str[i - 1] != ' ')) || (str[i] != ' '))
 {
-free(str_out);
+num_words++;
+}
+}
+words_array = (char **)malloc((num_words + 1) * sizeof(char *));
+if (words_array == NULL)
+{
 return (NULL);
 }
-for (i = j = 0; j < len; j++)
+for (i = 0; str[i] != '\0'; i++)
 {
-if (av[i][j] == '\0')
+if (((i > 0) && (str[i - 1] == ' ')) || (start_pos == 0))
 {
-str_out[j] = '\n';
-i++;
-j++;
+start_pos = i;
 }
-if (j < len - 1)
+else if ((str[i + 1] == '\0') || (str[i + 1] == ' '))
 {
-str_out[j] = av[i][j];
+end_pos = i + 1;
+words_array[ptr_index] = (char *)malloc((end_pos - start_pos) + 1);
+if (words_array[ptr_index] == NULL)
+{
+for (j = 0; j < ptr_index; j++)
+{
+free(words_array[j]);
+}
+free(words_array);
+return (NULL);
+}
+memcpy(words_array[ptr_index], &(str[start_pos]), ((end_pos - start_pos)));
+words_array[ptr_index][(end_pos - start_pos)] = '\0';
+ptr_index++;
 }
 }
-str_out[j] = '\0';
-return (str_out);
+words_array[num_words] = NULL;
+return (words_array);
 }
