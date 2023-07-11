@@ -9,7 +9,7 @@
  */
 char *argstostr(int ac, char **av)
 {
-int i, j;
+int i, j, len;
 len = 0;
 char *str;
 if (ac == 0 || av == NULL)
@@ -17,8 +17,6 @@ if (ac == 0 || av == NULL)
 return (NULL);
 }
 
-int i, j;
-len = 0;
 for (i = 0; i < ac; i++)
 {
 len += strlen(av[i]) + 1;
