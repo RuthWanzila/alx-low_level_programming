@@ -9,18 +9,22 @@
  */
 char *argstostr(int ac, char **av)
 {
+int i, j;
+len = 0;
+char *str;
 if (ac == 0 || av == NULL)
 {
 return (NULL);
 }
 
-int i, j, len = 0;
+int i, j;
+len = 0;
 for (i = 0; i < ac; i++)
 {
 len += strlen(av[i]) + 1;
 }
 
-char *str;
+
 str = (char *)malloc(len *sizeof(char));
 if (str == NULL)
 {
