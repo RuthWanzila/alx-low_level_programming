@@ -25,9 +25,8 @@ len1++;
 }
 concatenated = malloc(sizeof(char) * (len1 + 1));
 if (concatenated == NULL)
-{
 return (NULL);
-}
+len1 = 0;
 for (x = 0; s1[x]; x++)
 {
 concatenated[len1++] = s1[x];
