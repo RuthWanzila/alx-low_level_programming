@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define min(x, y) (((x) < (y)) ? (x) : (y))
 void *malloc_checked(unsigned int b);
