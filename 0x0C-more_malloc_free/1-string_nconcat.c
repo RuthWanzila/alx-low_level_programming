@@ -8,9 +8,10 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
+char *concatenated;
 unsigned int len1, x;
 len1 = n;
-char *concatenated;
+
 if (s1 == NULL)
 {
 s1 = "";
