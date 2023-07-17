@@ -25,6 +25,7 @@ return (dest);
  * @name: name of the dog
  * @owner: dog owner
  * @age: age of the dog
+ * Return: pointer to struct, NULL if fails
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
