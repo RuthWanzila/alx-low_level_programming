@@ -3,7 +3,7 @@
 /**
  * main - Entry point. Performs simple operations.
  * @argc: The number of arguments passed.
- * @argv: An array of pointers to the arguments.
+i * @argv: An array of pointers to the arguments.
  *
  * Return: Always 0.
  */
