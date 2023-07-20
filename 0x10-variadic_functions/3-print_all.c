@@ -9,10 +9,10 @@ void print_all(const char * const format, ...)
 {
 va_list args;
 int i;
-i = 0;
 char *s, *sep;
-sep = "";
 va_start(args, format);
+i = 0;
+sep = "";
 while (format && format[i])
 {
 switch (format[i])
