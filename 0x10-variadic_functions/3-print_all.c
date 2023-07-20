@@ -2,49 +2,41 @@
 #include <stdio.h>
 /**
  * print_all - prints anything
- * @format: list of types of arguments passed to the function
+ * @format: list of types of arguments passed to the function.
  * Return: void
  */
 void print_all(const char * const format, ...)
 {
-va_list args;
-va_start(args, format);
-int i, print_separator;
-i = 0;
-char c;
-c = '\0';
-float f;
-f = 0.0f;
-char *s;
-s = NULL;
-while (format[i] != '\0')
-print_separator = 0;
+va_list valist;
+int i = 0, j;
+char *sep = "";
+va_start(valist, format);
+while (format && format[i])
+{
 switch (format[i])
+{
 case 'c':
-c = va_arg(args, int);
-printf("%c", c);
-print_separator = 1;
+printf("%s%c", sep, va_arg(valist, int));
 break;
 case 'i':
-i = va_arg(args, int);
-printf("%d", i);
-print_separator = 1;
+printf("%s%d", sep, va_arg(valist, int));
 break;
 case 'f':
-f = va_arg(args, double);
-printf("%f", f);
-print_separator = 1;
+printf("%s%f", sep, va_arg(valist, double));
 break;
 case 's':
-s = va_arg(args, char *);
-printf("%s", (s == NULL) ? "(nil)" : s);
-print_separator = 1;
+j = va_arg(valist, int);
+if (j == 0)
+{
+printf("%s(nil)", sep);
 break;
-default:
+}
+printf("%s%s", sep, va_arg(valist, char*));
 break;
-if (format[i + 1] != '\0' && print_separator)
-printf(", ");
+}
+sep = ", ";
 i++;
+}
 printf("\n");
-va_end(args);
+va_end(valist);
 }
