@@ -8,7 +8,8 @@
 void print_all(const char * const format, ...)
 {
 va_list valist;
-int i = 0, j;
+int i = 0;
+char *j;
 char *sep = "";
 
 va_start(valist, format);
@@ -27,13 +28,14 @@ case 'f':
 printf("%s%f", sep, va_arg(valist, double));
 break;
 case 's':
-j = va_arg(valist, int);
+{
+j = va_arg(valist, char*);
 if (j == 0)
 {
 printf("%s(nil)", sep);
 break;
 }
-printf("%s%s", sep, va_arg(valist, char*));
+printf("%s%s", sep, j);
 break;
 }
 sep = ", ";
