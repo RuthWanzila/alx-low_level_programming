@@ -26,13 +26,13 @@ case 'f':
 printf("%s%f", sep, va_arg(valist, double));
 break;
 case 's':
-j = va_arg(valist, int);
-if (j == 0)
+j = va_arg(valist, char *);
+if (j == NULL)
 {
 printf("%s(nil)", sep);
 break;
 }
-printf("%s%s", sep, va_arg(valist, char*));
+printf("%s%s", sep, j);
 break;
 }
 sep = ", ";
