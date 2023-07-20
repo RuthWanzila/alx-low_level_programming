@@ -7,41 +7,29 @@
  *
  * Return: Always 0.
  */
+
 int main(int argc, char *argv[])
 {
-int num1, num2, result;
-char *op;
+int num1, num2;
+int (*op)(int, int);
+
 if (argc != 4)
 {
-printf("Usage: %s <num1> <operator> <num2>\n", argv[0]);
-return (1);
+printf("Error\n");
+exit(98);	}
+if (argv[2][1] != '\0')
+{
+printf("Error\n");
+exit(99);
+}
+op = get_op_func(argv[2]);
+if (op == NULL)
+{
+printf("Error\n");
+exit(99);
 }
 num1 = atoi(argv[1]);
-op = argv[2];
 num2 = atoi(argv[3]);
-if (op[1] != '\0')
-{
-printf("Error: Operator must be a single character\n");
-return (1);
-}
-switch (*op)
-{
-case '+':
-result = op_add(num1, num2);
-break;
-case '-':
-result = op_sub(num1, num2);
-break;
-case '*':
-result = op_mul(num1, num2);
-break;
-case '/':
-result = op_div(num1, num2);
-break;
-default:
-printf("Error: Unknown operator `%c'\n", *op);
-return (1);
-}
-printf("%d\n", result);
+printf("%d\n", op(num1, num2));
 return (0);
 }
