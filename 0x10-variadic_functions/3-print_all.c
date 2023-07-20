@@ -8,7 +8,8 @@
 void print_all(const char * const format, ...)
 {
 va_list valist;
-int i = 0, j;
+int i, j;
+i = 0;
 char *sep = "";
 va_start(valist, format);
 while (format && format[i])
