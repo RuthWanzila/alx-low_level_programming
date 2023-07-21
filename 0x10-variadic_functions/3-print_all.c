@@ -16,6 +16,7 @@ i = 0;
 sep = "";
 while (format && format[i])
 {
+sep = ", ";
 switch (format[i])
 {
 case 'c':
@@ -34,7 +35,6 @@ s = "(nil)";
 printf("%s%s", sep, s);
 break;
 }
-sep = ", ";
 i++;
 }
 printf("\n");
