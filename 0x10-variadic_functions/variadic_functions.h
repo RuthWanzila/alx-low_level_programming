@@ -9,7 +9,11 @@ void _printchar(va_list list);
 void _printstr(va_list list);
 void _printfloat(va_list list);
 void _printint(va_list list);
-
+/**
+ * struct checker - keep track of the format specifiers
+ * @type: The data type of the argument to be printed
+ * @f: A function pointer to the corresponding print function
+ */
 typedef struct checker
 {
 char *type;
