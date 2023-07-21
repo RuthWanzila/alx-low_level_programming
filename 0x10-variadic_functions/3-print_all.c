@@ -1,78 +1,71 @@
 #include "variadic_functions.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <stddef.h>
+
 /**
- * print_char - prints a char
- * @arg: the va_list argument
+ * _printchar - print char type element from va_list
+ * @list: va_list passed to function
  */
-void print_char(va_list arg)
+void _printchar(va_list list)
 {
-printf("%c", va_arg(arg, int));
+printf("%c", va_arg(list, int));
 }
 /**
- * print_int - prints an integer
- * @arg: the va_list argument
+ * _printstr - print string element from va_list
+ * @list: va_list passed to function
  */
-void print_int(va_list arg)
+void _printstr(va_list list)
 {
-printf("%d", va_arg(arg, int));
+char *s;
+s = va_arg(list, char *);
+if (s == NULL)
+s = "(nil)";
+printf("%s", s);
 }
 /**
- * print_float - prints a float
- * @arg: the va_list argument
+ * _printfloat - print float type element from va_list
+ * @list: va_list passed to function
  */
-void print_float(va_list arg)
+void _printfloat(va_list list)
 {
-printf("%f", va_arg(arg, double));
+printf("%f", va_arg(list, double));
 }
 
 /**
- * print_string - prints a string
- * @arg: the va_list argument
+ * _printint - print int type element from va_list
+ * @list: va_list passed to function
  */
-void print_string(va_list arg)
+void _printint(va_list list)
 {
-char *str;
-str = va_arg(arg, char *);
-if (str == NULL)
-printf("(nil)");
-else
-printf("%s", str);
+printf("%d", va_arg(list, int));
 }
+
 /**
- * print_all - prints anything
- * @format: a list of types of arguments passed to the function
+ * print_all - print anything passed if char, int, float, or string.
+ * @format: string of formats to use and print
  */
 void print_all(const char * const format, ...)
 {
+unsigned int i, j;
 va_list args;
-int i, j;
-char *separator; 
-i = 0;
-j = 0;
-separator = "";
-print_fn_t print_fn[] = {
-{'c', print_char},
-{'i', print_int},
-{'f', print_float},
-{'s', print_string},
-{'\0', NULL}
+char *sep;
+checker storage[] = {
+{ "c", _printchar },
+{ "f", _printfloat },
+{ "s", _printstr },
+{ "i", _printint }
 };
+i = 0;
+sep = "";
 va_start(args, format);
-while (format && format[i])
+while (format != NULL && format[i / 4] != '\0')
 {
-j = 0;
-while (print_fn[j].type)
+j = i % 4;
+if (storage[j].type[0] == format[i / 4])
 {
-if (print_fn[j].type == format[i])
-{
-printf("%s", separator);
-print_fn[j].fn(args);
-separator = ", ";
-break;
-}
-j++;
+printf("%s", sep);
+storage[j].f(args);
+sep = ", ";
 }
 i++;
 }
