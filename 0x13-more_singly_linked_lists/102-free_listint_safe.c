@@ -7,9 +7,9 @@
  */
 size_t free_listint_safe(listint_t **h)
 {
+listint_t *current_node, *next_node;
 size_t i;
 i = 0;
-listint_t *current_node, *next_node;
 current_node = *h;
 next_node = NULL;
 while (current_node != NULL)
