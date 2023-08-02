@@ -9,14 +9,19 @@
  * Return: pointer to the new node, or NULL if it failed
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
-{
+{       
 listint_t *new_node, *current_node;
 unsigned int i;
 if (head == NULL)
 {
 return (NULL);
 }
-new_node = malloc(sizeof(listint_t));
+new_node = malloc(sizeof(*new_node));
+if (new_node == NULL)
+{
+return (NULL);
+}
+new_node = malloc(sizeof(*new_node));
 if (new_node == NULL)
 {
 return (NULL);
@@ -29,16 +34,24 @@ new_node->next = *head;
 return (new_node);
 }
 current_node = *head;
-for (i = 0; i < idx - 1 && current_node != NULL; i++)
+for (i = 0; i < idx - 1; i++)
 {
-current_node = current_node->next;
-}
 if (current_node == NULL)
 {
 free(new_node);
 return (NULL);
 }
+current_node = current_node->next;
+}
+if (current_node != NULL)
+{
 new_node->next = current_node->next;
 current_node->next = new_node;
 return (new_node);
+}
+else 
+{
+free(new_node);
+return (NULL);
+}
 }
