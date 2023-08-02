@@ -16,4 +16,4 @@ current = *head;
 free(current);
 }
 *head = NULL;
-}                                                                                                                                          
+}
