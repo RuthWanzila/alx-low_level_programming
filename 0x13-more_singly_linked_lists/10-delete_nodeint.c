@@ -8,12 +8,14 @@
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
+listint_t *current_node, *previous_node;
 unsigned int i;
+current_node = *head;
+previous_node = NULL;
 if (head == NULL || *head == NULL)
 {
 return (-1);
 }
-listint_t *current_node = *head, *previous_node = NULL;
 for (i = 0; current_node != NULL && i < index; i++)
 {
 previous_node = current_node;
