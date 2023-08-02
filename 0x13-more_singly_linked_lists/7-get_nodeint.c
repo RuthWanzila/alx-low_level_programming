@@ -15,6 +15,7 @@ for (i = 0, current = head;
 current != NULL && i < index;
 i++, current = current->next)
 ;
+
 if (i < index || current == NULL)
 return (NULL);
 return (current);
