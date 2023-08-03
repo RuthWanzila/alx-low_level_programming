@@ -9,23 +9,23 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-unsigned int i;
-int j;
-i = 0;
+unsigned int result, x;
+int y;
+
 if (b == NULL)
+return (0);
+
+for (y = 0; b[y]; y++)
 {
+if (b[y] != '0' && b[y] != '1')
 return (0);
 }
-for (j = 0; b[j] = '\0'; j++)
+
+for (x = 1, result = 0, y--; y >= 0; y--, x *= 2)
 {
-if (b[j] == '0' || b[j] == '1')
-{
-i = i * 2 + (b[j] - '0');
+if (b[y] == '1')
+result += x;
 }
-else
-{
-return (0);
-}
-}
-return (i);
+
+return (result);
 }
