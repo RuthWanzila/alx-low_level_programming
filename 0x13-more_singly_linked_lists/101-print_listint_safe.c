@@ -18,7 +18,7 @@ exit(98);
 i = 0;
 while (curr != NULL)
 {
-hold = curr;
+j = curr;
 curr = curr->next;
 i++;
 printf("[%p] %d\n", (void *)j, j->n);
