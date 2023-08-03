@@ -8,9 +8,8 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-const listint_t *curr;
+const listint_t *curr, *j;
 size_t i;
-const listint_t *j;
 curr = head;
 if (curr == NULL)
 exit(98);
