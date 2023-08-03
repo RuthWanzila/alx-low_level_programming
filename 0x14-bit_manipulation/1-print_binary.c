@@ -6,11 +6,27 @@
  */
 void print_binary(unsigned long int n)
 {
-int i, num_bits;
-num_bits = 8 * sizeof(n);
-for (i = num_bits - 1; i >= 0; i--)
+unsigned long int k;
+int j;
+
+if (n == 0)
 {
-printf("%d", (n >> i) & 1);
+printf("0");
+return;
+}
+
+for (k = n, j = 0; (k >>= 1) > 0; j++);
+
+for (; j >= 0; j--)
+{
+if ((n >> j) & 1)
+{
+printf("1");
+}
+else
+{
+printf("0");
+}
 }
 printf("\n");
 }
