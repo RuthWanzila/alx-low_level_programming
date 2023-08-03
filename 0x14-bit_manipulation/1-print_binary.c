@@ -15,8 +15,8 @@ printf("0");
 return;
 }
 
-for (k = n, j = 0; (k >>= 1) > 0; j++);
-
+for (k = n, j = 0; (k >>= 1) > 0; j++)
+;
 for (; j >= 0; j--)
 {
 if ((n >> j) & 1)
