@@ -6,9 +6,9 @@
 */
 void hash_table_print(const hash_table_t *ht)
 {
-unsigned long int x;
+unsigned long int i = 0;
 unsigned int flag;
-x = 0;
+
 flag = 0;
 if (ht == NULL)
 return;
@@ -18,16 +18,16 @@ if (ht->array == NULL)
 printf("}\n");
 return;
 }
-for (x = 0; x < ht->size; x++)
+for (i = 0; i < ht->size; i++)
 {
 /* Traverse the linked list at each index */
-while (ht->array[x] != NULL)
+while (ht->array[i] != NULL)
 {
 if (flag == 1)
 printf(", ");
-printf("'%s': '%s'", (ht->array[x])->key, (ht->array[x])->value);
+printf("'%s': '%s'", (ht->array[i])->key, (ht->array[i])->value);
 flag = 1;
-ht->array[x] = (ht->array[x])->next;
+ht->array[i] = (ht->array[i])->next;
 }
 }
 printf("}\n");
